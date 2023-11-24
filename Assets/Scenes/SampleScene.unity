@@ -3852,8 +3852,9 @@ GameObject:
   m_Component:
   - component: {fileID: 791611156}
   - component: {fileID: 791611155}
-  - component: {fileID: 791611159}
   - component: {fileID: 791611158}
+  - component: {fileID: 791611160}
+  - component: {fileID: 791611159}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Player
@@ -3956,7 +3957,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65625, y: 0.65625}
   m_EdgeRadius: 0
---- !u!50 &791611159
+--- !u!114 &791611159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791611154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0a9b590836b63740ac09760ab06a602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 30
+  _movementSpeed: 3
+  _rigidbody2d: {fileID: 791611160}
+  _angleOffset: 90
+  _rotationSpeed: 7
+  _projectileBoolet: {fileID: 7498862330463900419, guid: f6f0ab84a05077249834c81e2940c9b3, type: 3}
+  _shootPoint: {fileID: 1883378338}
+--- !u!50 &791611160
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
