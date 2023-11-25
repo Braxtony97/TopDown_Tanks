@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : ShootableTank
 {
+    [SerializeField] private PlayerPoolObject _pool;
+
     private void FixedUpdate()
     {
         Move();
@@ -12,7 +14,7 @@ public class Player : ShootableTank
     private void Update()
     {
         SetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
             Shoot();
     }
 
@@ -20,5 +22,10 @@ public class Player : ShootableTank
     {
         Vector2 direction = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         _rigidbody2d.velocity = direction.normalized * _movementSpeed;
+    }
+
+    protected override void Shoot()
+    {
+        _pool.CreateBullet();
     }
 }
