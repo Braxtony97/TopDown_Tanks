@@ -11,18 +11,14 @@ public class PoolObjectMain<T> where T: MonoBehaviour
 
     private List<T> _pool;
 
-    public PoolObjectMain(T prefab, int count)
-    {
-        this.Prefab = prefab;
-        this.Container = null;
+    private Transform _transformPoint { get; set; }
 
-        CreatePool(count);
-    }
 
-    public PoolObjectMain(T prefab, int count, Transform container)
+    public PoolObjectMain(T prefab, int count, Transform container, Transform transformPoint)
     {
-        this.Prefab = prefab;
-        this.Container = container;
+        Prefab = prefab;
+        Container = container;
+        _transformPoint = transformPoint;
 
         CreatePool(count);
     }
@@ -38,7 +34,7 @@ public class PoolObjectMain<T> where T: MonoBehaviour
     // но когда нам нужно создать новый объект (если из 6 пуль мы создали 7 и т.д), то объект должен
     // быть включен -> будем передавать isActiveByDefault = true
     {
-        var createdObject = GameObject.Instantiate(Prefab, Container);
+        var createdObject = GameObject.Instantiate(Prefab, _transformPoint.position, _transformPoint.rotation, Container);
         createdObject.gameObject.SetActive(isActiveByDefault);
         _pool.Add(createdObject);
         return createdObject;
