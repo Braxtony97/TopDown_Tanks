@@ -12,7 +12,7 @@ public abstract class Tank : MonoBehaviour
     [SerializeField] protected float _rotationSpeed = 7f;
     private int _currentHealth;
 
-    private void Start()
+    protected virtual void Start()
     {
         _currentHealth = _maxHealth;
     }
@@ -20,6 +20,7 @@ public abstract class Tank : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
+        print(_currentHealth);
         if (_currentHealth <= 0)
         {
             Destroy(gameObject);
