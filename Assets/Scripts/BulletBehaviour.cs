@@ -6,6 +6,9 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private string _myTag = "";
     [SerializeField] private int _damage = 5;
+    [SerializeField] private PoolObjectMain<BulletBehaviour> _pool;
+    [SerializeField] private Rigidbody2D _rigidbody2d;
+
 
     void Update()
     {

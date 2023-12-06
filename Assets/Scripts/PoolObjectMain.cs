@@ -29,12 +29,13 @@ public class PoolObjectMain<T> where T: MonoBehaviour
             CreateObject();
     }
 
+
     private T CreateObject(bool isActiveByDefault = false)
     // isActiveByDefault: когда создаем пул - объекты должны сразу быть false (отключены)
     // но когда нам нужно создать новый объект (если из 6 пуль мы создали 7 и т.д), то объект должен
     // быть включен -> будем передавать isActiveByDefault = true
     {
-        var createdObject = GameObject.Instantiate(Prefab, _transformPoint.position, _transformPoint.rotation, Container);
+        var createdObject = UnityEngine.Object.Instantiate(Prefab, Container);
         createdObject.gameObject.SetActive(isActiveByDefault);
         _pool.Add(createdObject);
         return createdObject;
@@ -47,7 +48,7 @@ public class PoolObjectMain<T> where T: MonoBehaviour
         foreach (var elementPool in _pool){
             if (!elementPool.gameObject.activeInHierarchy){
                 element = elementPool;
-                elementPool.gameObject.SetActive(true); // Если свободен оюъект, сразу его активируем
+                elementPool.gameObject.SetActive(true); // Если свободен оюъект, сразу его активируем   
                 return true;
                 // Если объект не активен, то он свободен -> есть свободный элемент
             }  
@@ -59,11 +60,18 @@ public class PoolObjectMain<T> where T: MonoBehaviour
 
     public T GetFreeElement()
     {
-        if (HasFreeElement(out T element))
+        if (HasFreeElement(out T element)) 
             return element; // Если есть свободный элемент, возвращаем объект element
         if (AutoExpand)
             return CreateObject(true); // Если авторасширяем, то создаем объект (сразу активным делаем true)
         throw new Exception($"There is no free elements in pool of type {typeof(T)}");
+
+    }
+
+    public void ReturnActiveElementInPool(T element)
+    {
+        element.gameObject.SetActive(false);
+        element.transform.position = _transformPoint.position;
 
     }
 }

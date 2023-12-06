@@ -22,8 +22,8 @@ public abstract class ShootableTank : Tank
 
     protected void Shoot()
     {
-        //Instantiate(_bulletPrefab, _shootPoint.position, transform.rotation);
-        _pool.GetFreeElement();
+        Instantiate(_bulletPrefab, _shootPoint.position, transform.rotation);
+        //BulletBehaviour bullet = _pool.GetFreeElement();
     }
 }
 
