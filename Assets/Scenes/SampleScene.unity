@@ -930,6 +930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: meleeTank
       objectReference: {fileID: 0}
+    - target: {fileID: 7303877871780185607, guid: 2adfac8eeacaa624dbca55e8bdd6c09f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7303877871780185625, guid: 2adfac8eeacaa624dbca55e8bdd6c09f, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3556,6 +3560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: gunTank
       objectReference: {fileID: 0}
+    - target: {fileID: 2737507702224296706, guid: ec27164d1317f874a8011e1297a0ecdd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2737507702224296705, guid: ec27164d1317f874a8011e1297a0ecdd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ec27164d1317f874a8011e1297a0ecdd, type: 3}
@@ -3842,6 +3850,40 @@ Transform:
   m_Father: {fileID: 505062125}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &769881301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2737507702224296706, guid: ec27164d1317f874a8011e1297a0ecdd, type: 3}
+  m_PrefabInstance: {fileID: 686748252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &769881303 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2737507702224296735, guid: ec27164d1317f874a8011e1297a0ecdd, type: 3}
+  m_PrefabInstance: {fileID: 686748252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &769881306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769881301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7d11247a2c30447997298776410366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 15
+  _movementSpeed: 3
+  _rigidbody2d: {fileID: 769881303}
+  _angleOffset: 90
+  _rotationSpeed: 4
+  _shootPoint: {fileID: 2009942523}
+  bulletPoolContainer: {fileID: 0}
+  _bulletCount: 20
+  _autoExpand: 0
+  _bulletPrefab: {fileID: -7928740989181043551, guid: b4baca0bbe1ef9946835186d46a688bd, type: 3}
+  _reloadTime: 2
+  _distanceToPlayer: 5
 --- !u!1 &791611154
 GameObject:
   m_ObjectHideFlags: 0
@@ -6023,7 +6065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b85660cd3eb8844fb643949c9f64370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 40
+  _maxHealth: 20
   _movementSpeed: 2
   _rigidbody2d: {fileID: 1962342735}
   _angleOffset: 90
@@ -6060,6 +6102,11 @@ Transform:
   m_Father: {fileID: 96477563}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2009942523 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2737507701294894828, guid: ec27164d1317f874a8011e1297a0ecdd, type: 3}
+  m_PrefabInstance: {fileID: 686748252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2028185958
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,13 +9,12 @@ public class Player : ShootableTank
     private void FixedUpdate()
     {   
         Move();
+        SetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
     private void Update()
     {
-        SetAngle(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        ShootPlayer();
-        
+        ShootPlayer();     
     }
 
     protected override void Move()
