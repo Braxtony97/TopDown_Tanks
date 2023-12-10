@@ -1,7 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+
 
 public class PoolObjectMain<T> where T: MonoBehaviour
 {
@@ -35,19 +35,21 @@ public class PoolObjectMain<T> where T: MonoBehaviour
     // но когда нам нужно создать новый объект (если из 6 пуль мы создали 7 и т.д), то объект должен
     // быть включен -> будем передавать isActiveByDefault = true
     {
-        var createdObject = UnityEngine.Object.Instantiate(Prefab, Container);
+        var createdObject = UnityEngine.Object.Instantiate(Prefab, _transformPoint.position, _transformPoint.rotation, Container);
         createdObject.gameObject.SetActive(isActiveByDefault);
         _pool.Add(createdObject);
         return createdObject;
     }
 
-    public bool HasFreeElement(out T element)
+    public bool HasFreeElement(out T element, Transform shootPoint)
     // Спрашиваем, есть ли свободный элемент
     // out T element - можем сразу вытащить элемент, если он есть
     {
         foreach (var elementPool in _pool){
             if (!elementPool.gameObject.activeInHierarchy){
                 element = elementPool;
+                elementPool.transform.position = shootPoint.position; // Обновляем позицию и ротацию рули при активации
+                elementPool.transform.rotation = shootPoint.rotation;
                 elementPool.gameObject.SetActive(true); // Если свободен оюъект, сразу его активируем   
                 return true;
                 // Если объект не активен, то он свободен -> есть свободный элемент
@@ -58,9 +60,9 @@ public class PoolObjectMain<T> where T: MonoBehaviour
         return false;
     }
 
-    public T GetFreeElement()
+    public T GetFreeElement(Transform shootPoint)
     {
-        if (HasFreeElement(out T element)) 
+        if (HasFreeElement(out T element, shootPoint)) 
             return element; // Если есть свободный элемент, возвращаем объект element
         if (AutoExpand)
             return CreateObject(true); // Если авторасширяем, то создаем объект (сразу активным делаем true)

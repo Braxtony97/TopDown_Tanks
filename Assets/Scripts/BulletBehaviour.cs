@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -13,6 +14,7 @@ public class BulletBehaviour : MonoBehaviour
     void Update()
     {
         if (gameObject.activeSelf) {
+            StartCoroutine(CoroutineBulletLife());
             transform.Translate(Vector3.down * _bulletSpeed * Time.deltaTime);
         }
     }
@@ -22,8 +24,14 @@ public class BulletBehaviour : MonoBehaviour
         if (collision.gameObject.GetComponent<Tank>() != null && collision.gameObject.tag != _myTag)
         {
             collision.gameObject.GetComponent<Tank>().TakeDamage(_damage);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator CoroutineBulletLife()
+    {
+        yield return new WaitForSeconds(5);
+        gameObject.SetActive(false);
     }
 
 }

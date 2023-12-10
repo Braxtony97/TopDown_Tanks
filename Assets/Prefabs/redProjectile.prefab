@@ -222,6 +222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpeed: 3
-  _myTag: 
-  _damage: 3
+  _myTag: Enemy
+  _damage: 2
   _rigidbody2d: {fileID: 4813424783144019366}
