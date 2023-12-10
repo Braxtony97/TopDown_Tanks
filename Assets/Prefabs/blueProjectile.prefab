@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec90b5c5010db074390e1978b68b4d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletSpeed: 4
+  _bulletSpeed: 5
   _myTag: Player
   _damage: 5
   _rigidbody2d: {fileID: 8235809697898291374}
