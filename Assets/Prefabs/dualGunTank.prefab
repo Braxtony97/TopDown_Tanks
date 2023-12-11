@@ -152,10 +152,11 @@ MonoBehaviour:
   _rigidbody2d: {fileID: 0}
   _angleOffset: 90
   _rotationSpeed: 7
+  _points: 0
   _reloadTime: 0.5
   _shootPoint: {fileID: 713233193215658229}
   _bulletPoolContainer: {fileID: 0}
-  _bulletCount: 20
+  _bulletCount: 100
   _autoExpand: 0
   _bulletPrefab: {fileID: -7928740989181043551, guid: b4baca0bbe1ef9946835186d46a688bd, type: 3}
   _distanceToPlayer: 5

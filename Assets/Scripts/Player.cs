@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : ShootableTank
 {
@@ -15,6 +14,17 @@ public class Player : ShootableTank
     private void Update()
     {
         ShootPlayer();     
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        _currentHealth -= damage;
+        _uiStats.UpdateHp(_currentHealth);
+        if (_currentHealth <= 0)
+        {
+            Stats.ResetAllStats();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } 
     }
 
     protected override void Move()
