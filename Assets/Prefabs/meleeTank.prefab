@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7303877871780185606}
   - component: {fileID: 7303877871780185624}
   - component: {fileID: 7303877871780185627}
+  - component: {fileID: 4802038994055273472}
   m_Layer: 0
   m_Name: meleeTank
   m_TagString: Enemy
@@ -133,3 +134,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4802038994055273472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7303877871780185607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b85660cd3eb8844fb643949c9f64370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 10
+  _movementSpeed: 2
+  _rigidbody2d: {fileID: 0}
+  _angleOffset: 90
+  _rotationSpeed: 3
+  _points: 20
+  _damage: 5

@@ -10,19 +10,23 @@ public abstract class Tank : MonoBehaviour
     [SerializeField] protected Rigidbody2D _rigidbody2d;
     [SerializeField] protected float _angleOffset = 90f; // ƒокручиваем дуло танка на права *смотрит вниз пока)
     [SerializeField] protected float _rotationSpeed = 7f;
-    private int _currentHealth;
+    [SerializeField] private int _points = 0; // ¬ инспекторе выставл€ет значение дл€ каждого танка
+    [SerializeField] protected UIStats _uiStats;
+    protected int _currentHealth;
 
     protected virtual void Start()
     {
         _currentHealth = _maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         _currentHealth -= damage;
         print(_currentHealth);
         if (_currentHealth <= 0)
         {
+            Stats.Score += _points;
+            _uiStats.UpdateScoreAndLevel();
             Destroy(gameObject);
         }
     }
