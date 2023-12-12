@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public abstract class Tank : MonoBehaviour
 {
     [SerializeField] private int _maxHealth = 30;
     [SerializeField] protected float _movementSpeed = 3f;
-    [SerializeField] protected Rigidbody2D _rigidbody2d;
     [SerializeField] protected float _angleOffset = 90f; // ƒокручиваем дуло танка на права *смотрит вниз пока)
     [SerializeField] protected float _rotationSpeed = 7f;
     [SerializeField] private int _points = 0; // ¬ инспекторе выставл€ет значение дл€ каждого танка
-    [SerializeField] protected UIStats _uiStats;
+    protected UIStats _uiStats;
     protected int _currentHealth;
 
     protected virtual void Start()
     {
         _currentHealth = _maxHealth;
+        _uiStats = GameObject.FindGameObjectWithTag("UI").GetComponent<UIStats>();
     }
 
     public virtual void TakeDamage(int damage)
