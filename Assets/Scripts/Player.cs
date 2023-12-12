@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : ShootableTank
 {
+    [SerializeField] private Rigidbody2D _rigidbody2d;
     private float _timer;
 
     private void FixedUpdate()
