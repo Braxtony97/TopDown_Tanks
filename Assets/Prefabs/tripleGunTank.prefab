@@ -180,7 +180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 30
   _movementSpeed: 1
-  _rigidbody2d: {fileID: 0}
   _angleOffset: 90
   _rotationSpeed: 3
   _points: 0
@@ -190,4 +189,5 @@ MonoBehaviour:
   _bulletCount: 150
   _autoExpand: 0
   _bulletPrefab: {fileID: 7354293860150610867, guid: a5c5191c0959fca4295e6476edb2d63d, type: 3}
+  _projectileTag: RedBigProjectile
   _distanceToPlayer: 10

@@ -5,6 +5,12 @@ public class Player : ShootableTank
 {
     [SerializeField] private Rigidbody2D _rigidbody2d;
     private float _timer;
+    public static Player Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void FixedUpdate()
     {   
@@ -21,6 +27,7 @@ public class Player : ShootableTank
     {
         _currentHealth -= damage;
         _uiStats.UpdateHp(_currentHealth);
+
         if (_currentHealth <= 0)
         {
             Stats.ResetAllStats();
@@ -30,6 +37,7 @@ public class Player : ShootableTank
 
     protected override void Move()
     {
+        //this.transform.Translate(Vector2.down * Input.GetAxis("Vertical") * _movementSpeed * Time.deltaTime);
         Vector2 direction = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         _rigidbody2d.velocity = direction.normalized * _movementSpeed;
     }
