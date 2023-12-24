@@ -149,7 +149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 20
   _movementSpeed: 2
-  _rigidbody2d: {fileID: 0}
   _angleOffset: 90
   _rotationSpeed: 7
   _points: 0
@@ -159,6 +158,7 @@ MonoBehaviour:
   _bulletCount: 100
   _autoExpand: 0
   _bulletPrefab: {fileID: -7928740989181043551, guid: b4baca0bbe1ef9946835186d46a688bd, type: 3}
+  _projectileTag: RedProjectile
   _distanceToPlayer: 5
 --- !u!1 &713233193215658228
 GameObject:

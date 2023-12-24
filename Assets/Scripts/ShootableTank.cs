@@ -11,19 +11,22 @@ public abstract class ShootableTank : Tank
     [SerializeField] private int _bulletCount = 20;
     [SerializeField] private bool _autoExpand = false;
     [SerializeField] private BulletBehaviour _bulletPrefab;
+    [SerializeField] private string _projectileTag;
+    private ObjectPooler _objectPooler;
     
 
     protected override void Start()
     {
         base.Start();
-        _pool = new PoolObjectMain<BulletBehaviour>(_bulletPrefab, _bulletCount, _bulletPoolContainer, _shootPoint);
-        _pool.AutoExpand = _autoExpand;
-        // _shootPoint только при старте передает позицию свою, а нужно что бы постоянно
+        //_pool = new PoolObjectMain<BulletBehaviour>(_bulletPrefab, _bulletCount, _bulletPoolContainer, _shootPoint);
+        //_pool.AutoExpand = _autoExpand;
+        _objectPooler = ObjectPooler.Instance;
     }
 
     protected void Shoot()
     {
-        BulletBehaviour bullet = _pool.GetFreeElement(_shootPoint);
+        _objectPooler.SpawnFromPool(_projectileTag, _shootPoint);
+        //BulletBehaviour bullet = _pool.GetFreeElement(_shootPoint);
         // Передаем в параметры _shootPoint, т.к он передает только при старте -> пули всегда из начальной точки идут
         // А тут при стрельбе позиция _shootPoint обновляется -> пуди вылетают из нужной позиции
 

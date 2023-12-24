@@ -6,11 +6,14 @@ public class MeleeTank : Tank
     private Transform _target;
     private float _timerHit;
     private float _hitCooldown = 1f;
+    private Player _player;
 
     protected override void Start()
     {
         base.Start();
-        _target = GameObject.FindGameObjectWithTag("Player").transform;
+        //_target = GameObject.FindGameObjectWithTag("Player").transform;
+        _player = Player.Instance;
+        _target = _player.transform;    
     }
 
     protected override void Move()

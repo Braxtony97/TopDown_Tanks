@@ -3154,6 +3154,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3273,6 +3274,28 @@ MonoBehaviour:
   - {fileID: 252153167}
   - {fileID: 715633710}
   _spawnTime: 4
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0af78390364d349b19f7344fe0c9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pools:
+  - Tag: BlueProjectile
+    Prefab: {fileID: 7498862330463900419, guid: f6f0ab84a05077249834c81e2940c9b3, type: 3}
+    Size: 5
+  - Tag: RedProjectile
+    Prefab: {fileID: 7498862330463900419, guid: b4baca0bbe1ef9946835186d46a688bd, type: 3}
+    Size: 10
+  - Tag: RedBigProjectile
+    Prefab: {fileID: 7498862330463900419, guid: a5c5191c0959fca4295e6476edb2d63d, type: 3}
+    Size: 10
 --- !u!1 &521093235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,7 +3958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a9b590836b63740ac09760ab06a602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
+  _maxHealth: 200
   _movementSpeed: 5
   _angleOffset: 90
   _rotationSpeed: 7
@@ -3946,6 +3969,7 @@ MonoBehaviour:
   _bulletCount: 20
   _autoExpand: 0
   _bulletPrefab: {fileID: -6883725630882239435, guid: f6f0ab84a05077249834c81e2940c9b3, type: 3}
+  _projectileTag: BlueProjectile
   _rigidbody2d: {fileID: 791611160}
 --- !u!50 &791611160
 Rigidbody2D:

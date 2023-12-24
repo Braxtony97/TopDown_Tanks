@@ -25,6 +25,7 @@ public class PoolObjectMain<T> where T: MonoBehaviour
 
     private void CreatePool(int count){
         _pool = new List<T>(); // Создаем пул
+
         for (int i =0; i < count; i++)
             CreateObject();
     }
@@ -64,8 +65,10 @@ public class PoolObjectMain<T> where T: MonoBehaviour
     {
         if (HasFreeElement(out T element, shootPoint)) 
             return element; // Если есть свободный элемент, возвращаем объект element
+
         if (AutoExpand)
             return CreateObject(true); // Если авторасширяем, то создаем объект (сразу активным делаем true)
+
         throw new Exception($"There is no free elements in pool of type {typeof(T)}");
 
     }

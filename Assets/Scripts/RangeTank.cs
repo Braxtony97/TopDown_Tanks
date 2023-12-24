@@ -7,11 +7,14 @@ public class RangeTank : ShootableTank
     [SerializeField] private float _distanceToPlayer = 5f;
     private float _timer;
     private Transform _target;
+    private Player _player;
 
     protected override void Start()
     {
         base.Start();
-        _target = GameObject.FindGameObjectWithTag("Player").transform;   
+        //_target = FindObjectOfType<Player>().transform;
+        _player = Player.Instance;
+        _target = _player.transform;
     }
 
     protected override void Move()
