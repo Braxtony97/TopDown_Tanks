@@ -12,6 +12,12 @@ public class Player : ShootableTank
         Instance = this;
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        _uiStats.UpdateHp(_currentHealth);
+    } 
+
     private void FixedUpdate()
     {   
         Move();

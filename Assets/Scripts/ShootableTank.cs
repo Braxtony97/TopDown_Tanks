@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class ShootableTank : Tank
 {
-    private PoolObjectMain<BulletBehaviour> _pool;
+    [Header("Стрельба")]
     [SerializeField] protected float _reloadTime = 0.5f;
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private Transform _bulletPoolContainer;
@@ -12,8 +12,10 @@ public abstract class ShootableTank : Tank
     [SerializeField] private bool _autoExpand = false;
     [SerializeField] private BulletBehaviour _bulletPrefab;
     [SerializeField] private string _projectileTag;
+
     private ObjectPooler _objectPooler;
-    
+    private PoolObjectMain<BulletBehaviour> _pool;
+
 
     protected override void Start()
     {
