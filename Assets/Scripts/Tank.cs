@@ -4,7 +4,9 @@ using UnityEngine;
 
 public abstract class Tank : MonoBehaviour
 {
+    [Header("ќбщие характеристики")]
     [SerializeField] private int _maxHealth = 30;
+    [Range(0f, 5f)]
     [SerializeField] protected float _movementSpeed = 3f;
     [SerializeField] protected float _angleOffset = 90f; // ƒокручиваем дуло танка на права *смотрит вниз пока)
     [SerializeField] protected float _rotationSpeed = 7f;
